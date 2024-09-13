@@ -1,13 +1,13 @@
 ---
 layout: inner
-title: SnoTATOS
-permalink: /SnoTATOS/
+title: CV
+permalink: /cv/
 ---
 ## Markdown
 
 Text can be **bold**, _italic_, ~~strikethrough~~ or `keyword`.
 
-[Link to another page](/index.html).
+[download this](files/cv.pdf)
 
 There should be whitespace between paragraphs.
 
