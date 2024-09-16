@@ -105,5 +105,5 @@ enable_contact: false
 enable_nav: true
 nav_item:
   - { url: '/', text: 'Home' }
-  - { url: '/CV, text: 'CV'}
+  - { url: '/CV, text: 'CV' }
   - { url: '/SnoTATOS', text: 'SnoTATOS' }
