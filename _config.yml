@@ -106,5 +106,5 @@ enable_nav: true
 nav_item:
   - { url: '/', text: 'Home' }
   - { url: '/SnoTATOS', text: 'SnoTATOS' }
-  # - { url: '/SnoTATOS', text: 'SnoTATOS' }
+  - { url: '/SnoTATOS', text: 'SnoTATOS' }
   # - { url: '/CV', text: 'CV' }
