@@ -7,8 +7,8 @@ permalink: /cv/
 
 Text can be **bold**, _italic_, ~~strikethrough~~ or `keyword`.
 
-<!-- [download this](/files/cv.pdf) -->
-[cv.pdf]({{file name='/files/cv.pdf'}})
+[download this](/files/cv.pdf)
+<!-- [cv.pdf]({{file name='/files/cv.pdf'}}) -->
 
 There should be whitespace between paragraphs.
 
