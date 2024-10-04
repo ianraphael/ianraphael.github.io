@@ -423,6 +423,36 @@ function plotData(dataObject) {
     xaxis: {
       type: 'datetime',
     },
+    grid: {
+      show: true,
+      borderColor: '#90A4AE',
+      strokeDashArray: 0,
+      position: 'back',
+      xaxis: {
+        lines: {
+          show: false,
+        }
+      },
+      yaxis: {
+        lines: {
+          show: true,
+        }
+      },
+      row: {
+        colors: undefined,
+        opacity: 0.5
+      },
+      column: {
+        colors: undefined,
+        opacity: 0.5
+      },
+      padding: {
+        top: 20,
+        right: 30,
+        bottom: 20,
+        left: 20
+      },
+    },
     tooltip: {
       shared: true,
       y: {
