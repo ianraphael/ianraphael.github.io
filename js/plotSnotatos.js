@@ -31,14 +31,6 @@ let emaAlpha = 2/(10+1); // smoothing factor for exponential moving average
 let maxChangeRate_mmsec = 7; // 7 mm as specified by Maxbotix for snow specific pinger https://maxbotix.com/pages/hrxl-maxsonar-wrs-datasheet
 let samplingInterval_hours = 4;
 
-let lineWidth = 1.5;
-let markerSize = 8;
-let titleFontSize = 24;
-let subtitleFontSize = 16;
-let labelFontSize = 22;
-let legendFontSize = 12;
-let tickFontSize = 10;
-
 /**************************** fetch function def ****************************/
 // define function for fetching simb data
 async function fetchData(url, callbackFx) {
@@ -139,14 +131,17 @@ function processData(data) {
 
   // allocate an array to keep track of how many comms errors we have
   let commsErrors = new Array();
-  // prepopulate with 0s
-  commsErrors.fill(0);
+
+  // allocate an array to hold the number of stations reporting for any transmission
+  let n_stationsReporting = new Array();
 
   // for every row (data transmission)
   for (let row=0; row<dataArray.length;row++) {
 
     // allocate new array for this row of snow depths
     snowDepth[row] = new Array();
+
+    commsErrors[row] = 0;
 
     // for every column (station)
     for (let column = 0;column<numStations;column++){
@@ -156,9 +151,6 @@ function processData(data) {
         // increment the counter for this row (data transmission)
         commsErrors[row]++;
       }
-
-      // figure out how many stations reported
-      let n_stationsReporting = numStations - commsErrors;
 
       // if there's any kind of error
       if (rangeReadings[row][column] > 2.5) {
@@ -175,6 +167,9 @@ function processData(data) {
         snowDepth[row][column] = pingerStandoff - rangeReadings[row][column];
       }
     }
+
+    // figure out how many stations reported
+    n_stationsReporting[row] = [datenum_js[row], (numStations - commsErrors[row])];
   }
 
   /******************************* Filter data *******************************/
@@ -291,6 +286,7 @@ function processData(data) {
   dataObject.datenum_js = datenum_js;
   dataObject.dataLength = dataArray.length;
   dataObject.averageSnowDepth = averageSnowDepth;
+  dataObject.n_stationsReporting = n_stationsReporting;
 
   // plot the data
   plotData(dataObject);
@@ -342,7 +338,7 @@ function plotData(dataObject) {
         data: dataObject.snowDepth_filtered_indiv[9],
       },
       {
-        name: "Mean (Stns. 1-"+numStations+")",
+        name: "Mean (active stations)",
         data: dataObject.averageSnowDepth,
       },
       {
@@ -351,6 +347,8 @@ function plotData(dataObject) {
       },
     ],
     chart: {
+      id: buoyName,
+      group: 'snotatosPlots',
       animations: {
         enabled: false,
         animateGradually: {
@@ -369,7 +367,9 @@ function plotData(dataObject) {
         autoScaleYaxis: true
       },
       toolbar: {
-        autoSelected: 'zoom'
+        autoSelected: 'zoom',
+        offsetX: -30,
+
       }
     },
     stroke: {
@@ -393,7 +393,7 @@ function plotData(dataObject) {
       align: 'center',
       margin: 10,
       offsetX: 0,
-      offsetY: 0,
+      offsetY: 15,
       floating: false,
       style: {
         fontSize:  '28px',
@@ -409,6 +409,7 @@ function plotData(dataObject) {
             return (val).toFixed(2);
           }
         },
+        offsetX: 12,
       },
       title: {
         text: 'Snow depth (m)',
@@ -418,10 +419,16 @@ function plotData(dataObject) {
           fontWeight: 800,
           cssClass: 'apexcharts-yaxis-label',
         },
+        offsetX: -5,
+        offsetY: 0,
+        align: 'left',
       },
     },
     xaxis: {
       type: 'datetime',
+      tooltip: {
+        enabled: false,
+      },
     },
     grid: {
       show: true,
@@ -449,8 +456,52 @@ function plotData(dataObject) {
       padding: {
         top: 20,
         right: 30,
-        bottom: 20,
+        bottom: 0,
         left: 20
+      },
+    },
+    legend: {
+      show: true,
+      showForSingleSeries: false,
+      showForNullSeries: true,
+      showForZeroSeries: true,
+      position: 'top',
+      horizontalAlign: 'center',
+      floating: false,
+      fontSize: '14px',
+      fontFamily: 'Helvetica, Arial',
+      fontWeight: 400,
+      formatter: undefined,
+      inverseOrder: false,
+      width: undefined,
+      height: undefined,
+      tooltipHoverFormatter: undefined,
+      customLegendItems: [],
+      offsetX: 0,
+      offsetY: 0,
+      labels: {
+        colors: undefined,
+        useSeriesColors: false
+      },
+      markers: {
+        size: 7,
+        shape: 'square',
+        strokeWidth: 1,
+        fillColors: undefined,
+        customHTML: undefined,
+        onClick: undefined,
+        offsetX: 0,
+        offsetY: 0
+      },
+      itemMargin: {
+        horizontal: 5,
+        vertical: 0
+      },
+      onItemClick: {
+        toggleDataSeries: true
+      },
+      onItemHover: {
+        highlightDataSeries: true
       },
     },
     tooltip: {
@@ -461,27 +512,137 @@ function plotData(dataObject) {
             return (val).toFixed(2);
           }
         }
-      }
+      },
+      x: {
+        formatter: function (val) {
+          if (val!=null){
+            return (new Date(val)).toUTCString();
+          }
+        }
+      },
     }
   };
 
-  const newDiv = document.createElement("div");
-  const parent = document.querySelector("body");
-  parent.appendChild(newDiv);
-
-  // var chart = new ApexCharts(document.querySelector("#spark1"), options);
-  //
-  // // a small hack to extend height in website sample dashboard
-  // chart.render().then(function () {
-  //   var ifr = document.querySelector("#wrapper");
-  //   if (ifr.contentDocument) {
-  //     ifr.style.height = ifr.contentDocument.body.scrollHeight + 1000 + 'px';
-  //   }
-  // });
-
-  // // chart.render();
-
   new ApexCharts(document.querySelector("#spark1"), options).render();
+
+  var options1 = {
+    series: [
+      {
+        name: 'nStations',
+        data: dataObject.n_stationsReporting,
+      },
+    ],
+    chart: {
+      id: buoyName+'_nStations',
+      group: 'snotatosPlots',
+      animations: {
+        enabled: false,
+        animateGradually: {
+          enabled: false,
+        },
+        dynamicAnimation: {
+          enabled: false,
+        }
+      },
+      type: 'line',
+      stacked: false,
+      height: 250,
+      zoom: {
+        type: 'x',
+        enabled: true,
+        autoScaleYaxis: true
+      },
+      toolbar: {
+        show: false,
+      }
+    },
+    stroke: {
+      show: true,
+      // curve: 'straight',
+      lineCap: 'butt',
+      // colors: undefined,
+      width: 2,
+    },
+    dataLabels: {
+      enabled: false
+    },
+    markers: {
+      size: 0,
+    },
+    yaxis: {
+      labels: {
+        formatter: function (val) {
+          if (val!=null){
+            return (val).toFixed(0);
+          }
+        },
+        offsetX: 22,
+      },
+      title: {
+        text: 'Stations reporting',
+        style: {
+          fontSize: '22px',
+          fontFamily: 'Helvetica, Arial, sans-serif',
+          fontWeight: 800,
+          cssClass: 'apexcharts-yaxis-label',
+        },
+        offsetX: -8,
+        offsetY: 13,
+        align: 'left',
+      },
+    },
+    xaxis: {
+      type: 'datetime',
+      tooltip: {
+        enabled: false,
+      },
+    },
+    grid: {
+      show: true,
+      borderColor: '#90A4AE',
+      strokeDashArray: 0,
+      position: 'back',
+      xaxis: {
+        lines: {
+          show: false,
+        }
+      },
+      yaxis: {
+        lines: {
+          show: true,
+        }
+      },
+      row: {
+        colors: undefined,
+        opacity: 0.5
+      },
+      column: {
+        colors: undefined,
+        opacity: 0.5
+      },
+      padding: {
+        top: 0,
+        right: 30,
+        bottom: 20,
+        left: 30,
+      },
+    },
+    tooltip: {
+      // shared: true,
+      y: {
+        formatter: function (val) {
+          if (val!=null){
+            return (val).toFixed(0);
+          }
+        }
+      },
+      x: {
+        show: false,
+      },
+    }
+  };
+
+  new ApexCharts(document.querySelector("#spark2"), options1).render();
 }
 
 
