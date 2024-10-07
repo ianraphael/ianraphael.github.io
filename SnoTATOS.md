@@ -3,7 +3,7 @@ layout: inner
 title: SnoTATOS
 permalink: /SnoTATOS/
 ---
-## Markdown
+<!-- ## Markdown
 
 Text can be **bold**, _italic_, ~~strikethrough~~ or `keyword`.
 
@@ -202,4 +202,4 @@ enable_nav: true
 nav_item:
   - { url: '/', text: 'Home' }
   - { url: '/about', text: 'About' }
-{% endhighlight %}
+{% endhighlight %} -->
