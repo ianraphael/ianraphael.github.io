@@ -9,7 +9,7 @@
 // <script>
 
 // define URL
-let url = "https://api.cryosphereinnovation.com/public/deployment/data/60f4bc71-6942-49dc-89ab-d5434424e6dc";
+let url = "https://api.cryosphereinnovation.com/public/deployment/data/60f4bc71-6942-49dc-89ab-d5434424e6dc/";
 
 let plotErrorsAsZero = false;  // if false, plot as nans
 
@@ -378,7 +378,7 @@ function plotData(dataObject) {
       lineCap: 'butt',
       // colors: undefined,
       width: 2,
-      dashArray: [0,0,0,0,0,0,0,0,0,0,4,0,],
+      // dashArray: [0,0,0,0,0,0,0,0,0,0,4,0,],
     },
     colors: ['#008FFB', '#00E396', '#FEB019', '#FF4560', '#775DD0',
     '#3F51B5', '#03A9F4', '#4CAF50', '#F9CE1D', '#FF9800','#000000','#7b7b7b',],
