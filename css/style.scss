@@ -122,7 +122,7 @@ button.btn, input.btn {
 }
 
 .hero-content {
-  width: 80%;
+  width: 60%;
   margin: 0 auto;
   display: table;
   @include bp-medium {
@@ -449,7 +449,7 @@ pre {
     .box {
       box-shadow: 0px 1px 22px -12px #607D8B;
       background-color: #fff;
-      padding: 25px 35px 25px 30px;
+      // padding: 25px 35px 25px 30px;
     }
 
     .sparkboxes .box {
