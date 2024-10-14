@@ -8,9 +8,13 @@
 // <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 // <script>
 
-// define URL
-let url = "https://api.cryosphereinnovation.com/public/deployment/data/60f4bc71-6942-49dc-89ab-d5434424e6dc/";
 
+// if we're just pulling data up from local dir
+let localFiles = true;
+
+// define URL
+let remoteUrl = "https://api.cryosphereinnovation.com/public/deployment/data/60f4bc71-6942-49dc-89ab-d5434424e6dc/";
+let localUrl = "./files/file.json";
 let plotErrorsAsZero = false;  // if false, plot as nans
 
 let firstSnotatosColumn = 14; // first column in the simb datasheet in which there's snotatos data
@@ -35,7 +39,12 @@ let samplingInterval_hours = 4;
 // define function for fetching simb data
 async function fetchData(url, targetPane1,targetPane2, callbackFx) {
 
-  const response = await fetch(url, {headers: {'Authorization': 'Bearer '+ 'RgHhXQ58vGePoaDaaL6y8Ck9oClokGsf'}})
+  let options;
+  if (localFiles != true){
+    options = {headers: {'Authorization': 'Bearer '+ 'RgHhXQ58vGePoaDaaL6y8Ck9oClokGsf'}};
+  }
+
+  const response = await fetch(url, options);
   let data = await response.json();
 
   callbackFx(data,targetPane1,targetPane2);
@@ -645,9 +654,13 @@ function plotData(dataObject,targetPane1,targetPane2) {
   new ApexCharts(document.querySelector(targetPane2), options1).render();
 }
 
-
-// call fetch function
-fetchData(url,"#spark1","#spark2",processData);
+if (localFiles != true) {
+  // call fetch function
+  fetchData(remoteUrl,"#spark1","#spark2",processData);
+} else {
+  // call fetch function
+  fetchData(localUrl,"#spark1","#spark2",processData);
+}
 
 
 //
