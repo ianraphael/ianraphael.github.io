@@ -14,7 +14,7 @@ let localFiles = true;
 
 // define URL
 let remoteUrl = "https://api.cryosphereinnovation.com/public/deployment/data/60f4bc71-6942-49dc-89ab-d5434424e6dc/";
-let localUrl = "./files/file.json";
+let localUrl = "file:///Users/f001ymh/ianraphael.github.io/files/file.json/";
 let plotErrorsAsZero = false;  // if false, plot as nans
 
 let firstSnotatosColumn = 14; // first column in the simb datasheet in which there's snotatos data
@@ -657,9 +657,11 @@ function plotData(dataObject,targetPane1,targetPane2) {
 if (localFiles != true) {
   // call fetch function
   fetchData(remoteUrl,"#spark1","#spark2",processData);
+  console.log("fetched remote data");
 } else {
   // call fetch function
   fetchData(localUrl,"#spark1","#spark2",processData);
+  console.log("fetched local data");
 }
 
 
