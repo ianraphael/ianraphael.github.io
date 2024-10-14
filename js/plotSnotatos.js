@@ -23,11 +23,13 @@ let lastSnotatosColumn = firstSnotatosColumn + (numStations)*2;
 let timeStampColumn = 3;
 let simbPingerColumn = 10;
 
-let buoyName = '2024L';
+// let buoyName = '2024L';
+
 // let simbInitSnow = 0.26; // initial snow depth at SIMB2024R
-let simbInitSnow = 0.36; // initial snow depth at SIMB2024L
+// let simbInitSnow = 0.36; // initial snow depth at SIMB2024L
 // let simbInitSnow = 0.19; // initial snow depth at SIMB2024P
 // let simbInitSnow = 0.51; // initial snow depth at SIMB2024O
+let simbInitSnow = {"SIMB 2024R":0.26,"SIMB 2024L":0.36,"SIMB 2024P":0.19,"SIMB 2024O":0.51};
 
 let pingerStandoff = 1.44 - 0.19; // height of pinger above ice surface depth stop
 
@@ -37,7 +39,7 @@ let samplingInterval_hours = 4;
 
 /**************************** fetch function def ****************************/
 // define function for fetching simb data
-async function fetchData(url, targetPane1,targetPane2, callbackFx) {
+async function fetchData(url, buoyName, targetPane1,targetPane2, callbackFx) {
 
   let options;
   if (localFiles != true){
@@ -47,12 +49,12 @@ async function fetchData(url, targetPane1,targetPane2, callbackFx) {
   const response = await fetch(url, options);
   let data = await response.json();
 
-  callbackFx(data,targetPane1,targetPane2);
+  callbackFx(data,buoyName,targetPane1,targetPane2);
 }
 
 /*************************** data processing callback def ***************************/
 // define callback function which will execute once data is fetched
-function processData(data,targetPane1,targetPane2) {
+function processData(data,buoyName,targetPane1,targetPane2) {
 
   /************************* extract data from json *************************/
 
@@ -115,7 +117,7 @@ function processData(data,targetPane1,targetPane2) {
   let simbSnowDepth = new Array();
 
   // first get the pinger initial offset
-  let simbPingerOffset = simbInitSnow + simbSurfaceDistance[0];
+  let simbPingerOffset = simbInitSnow[buoyName] + simbSurfaceDistance[0];
 
   // now for every value
   for (let i=0;i<dataArray.length;i++){
@@ -298,11 +300,11 @@ function processData(data,targetPane1,targetPane2) {
   dataObject.n_stationsReporting = n_stationsReporting;
 
   // plot the data
-  plotData(dataObject,targetPane1,targetPane2);
+  plotData(dataObject,buoyName,targetPane1,targetPane2);
 }
 
 /**************************** plot data function def ****************************/
-function plotData(dataObject,targetPane1,targetPane2) {
+function plotData(dataObject,buoyName,targetPane1,targetPane2) {
 
   var options = {
     series: [
@@ -398,7 +400,7 @@ function plotData(dataObject,targetPane1,targetPane2) {
       size: 0,
     },
     title: {
-      text: "SIMB3 "+buoyName,
+      text: buoyName,
       align: 'center',
       margin: 10,
       offsetX: 0,
@@ -654,15 +656,15 @@ function plotData(dataObject,targetPane1,targetPane2) {
   new ApexCharts(document.querySelector(targetPane2), options1).render();
 }
 
-if (localFiles != true) {
+// if (localFiles != true) {
+//   // call fetch function
+//   fetchData(remoteUrl,"#spark1","#spark2",processData);
+//   console.log("fetched remote data");
+// } else {
   // call fetch function
-  fetchData(remoteUrl,"#spark1","#spark2",processData);
-  console.log("fetched remote data");
-} else {
-  // call fetch function
-  fetchData(localUrl,"#spark1","#spark2",processData);
+  fetchData(localUrl,"SIMB 2024L","#spark1","#spark2",processData);
   console.log("fetched local data");
-}
+// }
 
 
 //
