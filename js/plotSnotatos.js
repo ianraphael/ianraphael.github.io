@@ -14,7 +14,7 @@ let localFiles = true;
 
 // define URL
 let remoteUrl = "https://api.cryosphereinnovation.com/public/deployment/data/60f4bc71-6942-49dc-89ab-d5434424e6dc/";
-let localUrl = "files/file.json";
+let localUrl = "/files/file.json";
 let plotErrorsAsZero = false;  // if false, plot as nans
 
 let firstSnotatosColumn = 14; // first column in the simb datasheet in which there's snotatos data
