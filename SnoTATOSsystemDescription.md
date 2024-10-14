@@ -1,6 +1,6 @@
 ---
 layout: inner
-title: SnoTATOS
+title: SnoTATOS System
 permalink: /SnoTATOSsystemDescription/
 ---
 <!-- ## Markdown

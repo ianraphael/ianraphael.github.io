@@ -1,13 +1,8 @@
 ---
 layout: inner
-title: SnoTATOS
+title: SnoTATOS Livestream
 permalink: /SnoTATOSdata/
 ---
-
-## SnoTATOS live data
-
-We deployed several SnoTATOS networks in the Lincoln Sea in late April 2024 as part of the [NASA ARCSIX project](https://espo.nasa.gov/arcsix/content/ARCSIX). Below you'll find live data from the active networks.
-
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -31,6 +26,10 @@ We deployed several SnoTATOS networks in the Lincoln Sea in late April 2024 as p
 
   <link rel="stylesheet" href="styles.css" />
 </head>
+
+<h1>SnoTATOS live data</h1>
+
+<p> We deployed several SnoTATOS networks in the Lincoln Sea in late April 2024 as part of the <a href="https://espo.nasa.gov/arcsix/content/ARCSIX" target="_blank" rel="noopener noreferrer">NASA ARCSIX project</a>. Below you'll find live data from the active networks.
 
 <body>
   <div id="wrapper">
