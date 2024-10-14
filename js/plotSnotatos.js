@@ -662,8 +662,8 @@ function plotData(dataObject,buoyName,targetPane1,targetPane2) {
 //   console.log("fetched remote data");
 // } else {
   // call fetch function
-  fetchData(localUrl,"SIMB 2024L","#spark1","#spark2",processData);
-  console.log("fetched local data");
+  // fetchData(localUrl,"SIMB 2024L","#spark1","#spark2",processData);
+  // console.log("fetched local data");
 // }
 
 
