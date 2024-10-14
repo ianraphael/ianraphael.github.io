@@ -3,6 +3,10 @@ layout: inner
 title: SnoTATOS
 permalink: /SnoTATOSdata/
 ---
+
+## SnoTATOS live data
+
+We deployed several SnoTATOS networks in the Lincoln Sea in late April 2024 as part of the NASA ARCSIX project. Below you'll find live data from the active networs
 <!-- ## Markdown
 
 Text can be **bold**, _italic_, ~~strikethrough~~ or `keyword`.
