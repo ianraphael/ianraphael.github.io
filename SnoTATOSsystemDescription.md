@@ -4,14 +4,18 @@ title: SnoTATOS System
 permalink: /SnoTATOSsystemDescription/
 ---
 
-#SnoTATOS: the Snow Thickness And Temperature Observation systems
+# SnoTATOS: the Snow Thickness And Temperature Observation systems
 
 SnoTATOS is an ultra-low power, affordable, distributed snow measurement system.
 Dataloggers equipped with ultrasonic rangefinders can installed in a network up to 20 km in diameter.
 Each remote station relays its data back to a central base station using LoRa radio. The base station
 sends all network data home using Iridium SBD. We have also integrated SnoTATOS into the <a href="https://www.cryosphereinnovation.com/simb3" target="_blank" rel="noopener noreferrer">SIMB3 buoy</a>.
 
-With an average power demand of only 224 µA, a SnoTATOS station can achieve a 2,200 day endurance using a single D-cell battery. 
+With an average power demand of only 224 µA, a SnoTATOS station can achieve a ~2,200 day endurance using a single D-cell battery.
+
+
+![image](/img/snotatos_system.png)
+![image](/img/snotatos_station.png)
 
 
 <!-- ## Markdown
