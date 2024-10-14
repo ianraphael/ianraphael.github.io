@@ -2,6 +2,8 @@
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
 <script>
 
+require('dotenv').config()
+
 // define URL
 let url = "http://api.cryosphereinnovation.com/public/deployment/data/60f4bc71-6942-49dc-89ab-d5434424e6dc";
 
@@ -37,7 +39,7 @@ let tickFontSize = 10;
 // define function for fetching simb data
 async function fetchData(url, callbackFx) {
 
-  const response = await fetch(url, {headers: {'Authorization': 'Bearer RgHhXQ58vGePoaDaaL6y8Ck9oClokGsf'}})
+  const response = await fetch(url, {headers: {'Authorization': 'Bearer '+process.env.API_KEY}})
   let data = await response.json();
 
   callbackFx(data,plotData);

@@ -105,5 +105,7 @@ enable_contact: false
 enable_nav: true
 nav_item:
   - { url: '/', text: 'Home' }
-  - { url: '/files/cv.pdf', text: 'CV' }
+  # - { url: '/files/cv.pdf', text: 'CV' }
   - { url: '/SnoTATOS', text: 'SnoTATOS' }
+    - {url: '/SnoTATOS', text: 'System description' }
+    - {url: '/SnoTATOS', text: 'Live data' }

@@ -33,17 +33,17 @@ let samplingInterval_hours = 4;
 
 /**************************** fetch function def ****************************/
 // define function for fetching simb data
-async function fetchData(url, callbackFx) {
+async function fetchData(url, targetPane1,targetPane2, callbackFx) {
 
-  const response = await fetch(url, {headers: {'Authorization': 'Bearer RgHhXQ58vGePoaDaaL6y8Ck9oClokGsf'}})
+  const response = await fetch(url, {headers: {'Authorization': 'Bearer '+ 'RgHhXQ58vGePoaDaaL6y8Ck9oClokGsf'}})
   let data = await response.json();
 
-  callbackFx(data,plotData);
+  callbackFx(data,targetPane1,targetPane2);
 }
 
 /*************************** data processing callback def ***************************/
 // define callback function which will execute once data is fetched
-function processData(data) {
+function processData(data,targetPane1,targetPane2) {
 
   /************************* extract data from json *************************/
 
@@ -289,11 +289,11 @@ function processData(data) {
   dataObject.n_stationsReporting = n_stationsReporting;
 
   // plot the data
-  plotData(dataObject);
+  plotData(dataObject,targetPane1,targetPane2);
 }
 
 /**************************** plot data function def ****************************/
-function plotData(dataObject) {
+function plotData(dataObject,targetPane1,targetPane2) {
 
   var options = {
     series: [
@@ -523,7 +523,7 @@ function plotData(dataObject) {
     }
   };
 
-  new ApexCharts(document.querySelector("#spark1"), options).render();
+  new ApexCharts(document.querySelector(targetPane1), options).render();
 
   var options1 = {
     series: [
@@ -642,12 +642,12 @@ function plotData(dataObject) {
     }
   };
 
-  new ApexCharts(document.querySelector("#spark2"), options1).render();
+  new ApexCharts(document.querySelector(targetPane2), options1).render();
 }
 
 
 // call fetch function
-fetchData(url,processData);
+fetchData(url,"#spark1","#spark2",processData);
 
 
 //
