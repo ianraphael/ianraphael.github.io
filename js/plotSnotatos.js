@@ -369,7 +369,7 @@ function plotData(dataObject,targetPane1,targetPane2) {
       },
       type: 'line',
       stacked: false,
-      height: 700,
+      height: 467,
       zoom: {
         type: 'x',
         enabled: true,
@@ -555,7 +555,7 @@ function plotData(dataObject,targetPane1,targetPane2) {
       },
       type: 'line',
       stacked: false,
-      height: 250,
+      height: 180,
       zoom: {
         type: 'x',
         enabled: true,
