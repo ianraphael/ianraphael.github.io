@@ -26,11 +26,11 @@ $secondary: #FF7B7B;
 	1.0 Defaults
 --------------------------------------------------------------*/
 
-// @media (min-width: 1200px) {
-//   .container {
-//     width: 1200px;
-//   }
-// }
+@media (min-width: 1200px) {
+  .container {
+    width: 1200px;
+  }
+}
 
 body {
   background-color: #e9edf0;
@@ -112,17 +112,17 @@ button.btn, input.btn {
 	2.0 Home Hero
 --------------------------------------------------------------*/
 .hero-container {
-  margin: 4em 0 4em 0;
+  margin: 10em 0 9em 0;
   @include bp-xsmall {
-    margin: 2em 0 2em 0;
+    margin: 5em 0 5em 0;
   }
   @include bp-small {
-    margin: 2em 0 2em 0;
+    margin: 5em 0 5em 0;
   }
 }
 
 .hero-content {
-  width: 80%;
+  width: 60%;
   margin: 0 auto;
   display: table;
   @include bp-medium {
@@ -441,27 +441,3 @@ pre {
     .highlight .vg { color: #000000 } /* Name.Variable.Global */
     .highlight .vi { color: #000000 } /* Name.Variable.Instance */
     .highlight .il { color: #0000cf; font-weight: bold } /* Literal.Number.Integer.Long */
-
-
-    /*--------------------------------------------------------------
-    	7.0 Apex dashboard styles (added by Ian 2024.10.14)
-    --------------------------------------------------------------*/
-    .box {
-      box-shadow: 0px 1px 22px -12px #607D8B;
-      background-color: #fff;
-      padding: 25px 35px 25px 30px;
-    }
-
-    .sparkboxes .box {
-      padding: 3px 0 0 0;
-      position: relative;
-    }
-
-    #spark1, #spark2, #spark3, #spark4 {
-      position: relative;
-      padding-top: 15px;
-    }
-
-
-    /* overrides */
-    .sparkboxes #apexcharts-subtitle-text { fill: #8799a2 !important; }
