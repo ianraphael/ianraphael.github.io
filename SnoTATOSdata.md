@@ -1,7 +1,7 @@
 ---
 layout: inner
 title: SnoTATOS
-permalink: /SnoTATOS/
+permalink: /SnoTATOSdata/
 ---
 <!-- ## Markdown
 
