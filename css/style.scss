@@ -28,7 +28,7 @@ $secondary: #FF7B7B;
 
 @media (min-width: 500px) {
   .container {
-    width: 10px;
+    width: 1000px;
   }
 }
 
@@ -112,17 +112,17 @@ button.btn, input.btn {
 	2.0 Home Hero
 --------------------------------------------------------------*/
 .hero-container {
-  margin: 10em 0 9em 0;
+  margin: 4em 0 4em 0;
   @include bp-xsmall {
-    margin: 5em 0 5em 0;
+    margin: 2em 0 2em 0;
   }
   @include bp-small {
-    margin: 5em 0 5em 0;
+    margin: 2em 0 2em 0;
   }
 }
 
 .hero-content {
-  width: 60%;
+  width: 80%;
   margin: 0 auto;
   display: table;
   @include bp-medium {
