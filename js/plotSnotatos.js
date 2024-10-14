@@ -588,7 +588,7 @@ function plotData(dataObject,targetPane1,targetPane2) {
         offsetX: 22,
       },
       title: {
-        text: 'Stations reporting',
+        text: 'Stations\nreporting',
         style: {
           fontSize: '22px',
           fontFamily: 'Helvetica, Arial, sans-serif',
