@@ -105,6 +105,6 @@ enable_contact: false
 enable_nav: true
 nav_item:
   - { url: '/', text: 'Home' }
-  - { url: '/SnoTATOS', text: 'SnoTATOS' }
-  - {url: '/SnoTATOS', text: 'System description' }
-  - {url: '/SnoTATOS', text: 'Live data' }
+  - { url: '/SnoTATOSsystemDescription', text: 'SnoTATOS System' }
+  - {url: '/SnoTATOSdata', text: 'Live Data' }
+  # - {url: '/SnoTATOS', text: 'Live data' }

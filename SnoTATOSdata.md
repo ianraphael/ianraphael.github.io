@@ -6,204 +6,92 @@ permalink: /SnoTATOSdata/
 
 ## SnoTATOS live data
 
-We deployed several SnoTATOS networks in the Lincoln Sea in late April 2024 as part of the NASA ARCSIX project. Below you'll find live data from the active networs
-<!-- ## Markdown
+We deployed several SnoTATOS networks in the Lincoln Sea in late April 2024 as part of the [NASA ARCSIX project](https://espo.nasa.gov/arcsix/content/ARCSIX). Below you'll find live data from the active networks.
 
-Text can be **bold**, _italic_, ~~strikethrough~~ or `keyword`.
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SnoTATOS livestream</title>
 
-[Link to another page](/index.html).
+  <link
+  rel="stylesheet"
+  href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+  />
 
-There should be whitespace between paragraphs.
+  <link
+  rel="stylesheet"
+  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+  />
+  <link
+  href="https://fonts.googleapis.com/css?family=Titillium+Web:400,600,700"
+  rel="stylesheet"
+  />
 
-# Header 1
+  <link rel="stylesheet" href="styles.css" />
+</head>
 
-This is a normal paragraph following a header. GitHub is a code hosting platform for version control and collaboration. It lets you and others work together on projects from anywhere.
+<body>
+  <div id="wrapper">
+    <div class="content-area">
+      <div class="container-fluid">
+        <!-- <div class="text-right mt-3 mb-3 d-fixed">
+          <a
+          href="https://github.com/apexcharts/apexcharts.js/tree/master/samples/vanilla-js/dashboards/modern"
+          target="_blank"
+          class="btn btn-outline-primary mr-2"
+          >
+          <span class="btn-text">View Code</span>
+        </a>
+      </div> -->
+      <div class="main">
+        <div class="row sparkboxes mt-4 mb-4 ml-4 mr-4">
+          <div class="container-fluid">
+            <div class="box">
+              <div id="spark1"></div>
+              <div id="spark2"</div>
+            </div>
+          </div>
+        </div>
 
-## Header 2
 
-> This is a blockquote following a header.
->
-> When something is important enough, you do it even if the odds are not in your favor.
+        <div class="row mt-5 mb-4">
+          <div class="col-md-6">
+            <div class="box">
+              <div id="bar"></div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="box">
+              <div id="donut"></div>
+            </div>
+          </div>
+        </div>
 
-### Header 3
+        <div class="row mt-4 mb-4">
+          <div class="col-md-6">
+            <div class="box">
+              <div id="area"></div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="box">
+              <div id="line"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-{% highlight js %}
-// Javascript code with syntax highlighting.
-var fun = function lang(l) {
-  dateformat.i18n = require('./lang/' + l)
-  return true;
-}
-{% endhighlight %}
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+<script src="data.js"></script>
+<script src="./js/plotSnotatos.js"></script>
+<script src="scripts.js"></script>
 
-{% highlight ruby %}
-# Ruby code with syntax highlighting
-GitHubPages::Dependencies.gems.each do |gem, version|
-  s.add_dependency(gem, "= #{version}")
-end
-{% endhighlight %}
-
-#### Header 4
-
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
-*   This is an unordered list following a header.
-
-##### Header 5
-
-1.  This is an ordered list following a header.
-2.  This is an ordered list following a header.
-3.  This is an ordered list following a header.
-
-###### Header 6
-
-| head1        | head two          | three |
-|:-------------|:------------------|:------|
-| ok           | good swedish fish | nice  |
-| out of stock | good and plenty   | nice  |
-| ok           | good `oreos`      | hmm   |
-| ok           | good `zoute` drop | yumm  |
-
-### There's a horizontal rule below this.
-
----
-
-### Here is an unordered list:
-
-*   Item foo
-*   Item bar
-*   Item baz
-*   Item zip
-
-### And an ordered list:
-
-1.  Item one
-1.  Item two
-1.  Item three
-1.  Item four
-
-### And a nested list:
-
-- level 1 item
-  - level 2 item
-  - level 2 item
-    - level 3 item
-    - level 3 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-  - level 2 item
-  - level 2 item
-- level 1 item
-
-### Wide image
-
-![Branching](https://guides.github.com/activities/hello-world/branching.png)
-
-### Definition lists can be used with HTML syntax.
-
-<dl>
-<dt>Name</dt>
-<dd>Godzilla</dd>
-<dt>Born</dt>
-<dd>1952</dd>
-<dt>Birthplace</dt>
-<dd>Japan</dd>
-<dt>Color</dt>
-<dd>Green</dd>
-</dl>
-
-{% highlight txt %}
-Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
-{% endhighlight %}
-
-{% highlight txt %}
-The final element.
-{% endhighlight %}
-
----
-
-## Syntax highlighting
-
-Jekyll has [built in support](https://jekyllrb.com/docs/templates/#code-snippet-highlighting) for syntax highlighting of over 60 languages thanks to [Rouge](http://rouge.jneen.net/).
-
-To render a code block with syntax highlighting, surround your code as follows:
-
-{% highlight markdown %}
-{% raw %}
-{% highlight ruby %}
-def foo
-  puts 'foo'
-end
-{% endhighlight %}
-{% endraw %}
-{% endhighlight %}
-
-[Pygments](http://pygments.org/) styles are present under section 6.0 of `css/style.scss` for customization.
-
-### Examples
-
----
-
-#### Bash
-
-{% highlight bash %}
->_ ssh -i ~/.ssh/id_rsa account@host.com
-account@host:~$
-$ var="my-value"
-$ echo $var
-my-value
-$ logout
-{% endhighlight %}
-
-#### HTML
-
-{% highlight html %}
-<!DOCTYPE html>
-<html>
- <head>
-   <meta charset="UTF-8">
-   <title>title</title>
- </head>
- <body>
-
- </body>
+<script></script>
+</body>
 </html>
-{% endhighlight %}
-
-#### CSS
-
-{% highlight css %}
-/*--------------------------------------------------------------
-	1.0 Defaults
---------------------------------------------------------------*/
-
-@media (min-width: 1200px) {
-  .container {
-    width: 1200px;
-  }
-}
-
-body {
-  background-color: #e9edf0;
-  @extend %opensans;
-  -webkit-font-smoothing: antialiased;
-}
-{% endhighlight %}
-
-#### YAML
-
-{% highlight yaml %}
-### Phantom settings
-paginate: 10
-footer_text: '© 2018 Jami Gibbs'
-admin_name: 'Jami Gibbs'
-google_analytics: "UA-9999999-99" # Update with your own tracking ID
-
-#### Phantom Navigation menu
-enable_nav: true
-nav_item:
-  - { url: '/', text: 'Home' }
-  - { url: '/about', text: 'About' }
-{% endhighlight %} -->
