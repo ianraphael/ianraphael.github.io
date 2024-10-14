@@ -6,15 +6,20 @@ permalink: /SnoTATOSsystemDescription/
 
 # SnoTATOS: the Snow Thickness And Temperature Observation systems
 
-SnoTATOS is an ultra-low power, affordable, distributed snow measurement system.
-Dataloggers equipped with ultrasonic rangefinders can installed in a network up to 20 km in diameter.
-Each remote station relays its data back to a central base station using LoRa radio. The base station
-sends all network data home using Iridium SBD. We have also integrated SnoTATOS into the <a href="https://www.cryosphereinnovation.com/simb3" target="_blank" rel="noopener noreferrer">SIMB3 buoy</a>.
-
-With an average power demand of only 224 µA, a SnoTATOS station can achieve a ~2,200 day endurance using a single D-cell battery.
-
+The Arctic is cold, dark, and hard to get to. To understand how the Arctic ice cover and climate are changing,
+we need more frequent and more precise snow measurements than people, planes, and satellites can provide. Autonomous instrumentation
+can do the job, but current snow sensing systems are prohibitively expensive and difficult to transport and install. We are trying to change
+that with SnoTATOS: an ultra-low power, affordable, distributed snow measurement system. A SnoTATOS station is ~98% less expensive,
+92% lighter, and 50% faster to deploy than the current leading polar snow sensing systems,
+and with an average power demand of only 224 µA, a SnoTATOS station can achieve a ~2,200 day endurance using a single D-cell battery.
 
 ![image](/img/snotatos_system.png)
+
+Each SnoTATOS station is equipped with an ultrasonic rangefinder, and can be installed in a network up to 20 km in diameter.
+The stations transmit their data back to a central base station using LoRa radio. The base station
+sends all network data home using Iridium SBD. Check out the <a href="/SnoTATOSdata" target="_blank" rel="noopener noreferrer">data page</a>
+to see live data from SnoTATOS networks currently deployed in sea ice north of Greenland and Canada!
+
 ![image](/img/snotatos_station.png)
 
 
