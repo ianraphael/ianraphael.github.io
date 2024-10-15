@@ -4,7 +4,7 @@ title: SnoTATOS System
 permalink: /SnoTATOSsystemDescription/
 ---
 
-# SnoTATOS: the Snow Thickness And Temperature Observation systems
+# SnoTATOS: the Snow Thickness And Temperature Observation System
 
 The Arctic is cold, dark, and hard to get to. To understand how the Arctic ice cover and climate are changing,
 we need more frequent and more precise snow measurements than people, planes, and satellites can provide. Autonomous instrumentation
