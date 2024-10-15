@@ -11,7 +11,7 @@ we need more frequent and more precise snow measurements than people, planes, an
 can do the job, but current snow sensing systems are prohibitively expensive and difficult to transport and install. We set out to
 build an ultra-low power, affordable, distributed snow measurement system to fill the gap. SnoTATOS stations are ~98% less expensive,
 92% lighter, and 50% faster to deploy than the current leading polar snow sensing systems,
-and with an average power demand of only 224 µA, a SnoTATOS station can achieve ~2,200 day endurance using a single D-cell battery.
+and with an average power demand of only 224 µW, a SnoTATOS station can achieve ~2,200 day endurance using a single D-cell battery.
 
 ![image](/img/snotatos_system.png)
 
