@@ -27,29 +27,29 @@ permalink: /SnoTATOSdata/
       <div id="spark2"></div>
     </div>
     <br>
-    <center><button type="button" onclick="changeData('SIMB 2024L')">Toggle filtered/unfiltered data</button></center>
+    <center><button type="button" onclick="changeData('SIMB 2024L',data_L)">Toggle filtered/unfiltered data</button></center>
     <br>
     <div class="box">
       <div id="spark3"></div>
       <div id="spark4"></div>
     </div>
     <br>
-    <center><button type="button" onclick="changeData('SIMB 2024P')">Toggle filtered/unfiltered data</button></center>
+    <center><button type="button" onclick="changeData('SIMB 2024P',data_P)">Toggle filtered/unfiltered data</button></center>
     <br>
     <div class="box">
       <div id="spark5"></div>
       <div id="spark6"></div>
     </div>
     <br>
-    <center><button type="button" onclick="changeData('SIMB 2024R')">Toggle filtered/unfiltered data</button></center>
+    <center><button type="button" onclick="changeData('SIMB 2024R',data_R)">Toggle filtered/unfiltered data</button></center>
     <br>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>'
 <script src="/js/plotSnotatos.js"></script>
 <script>
-  fetchData("/files/2024L.json","SIMB 2024L","#spark1","#spark2",processData);
-  fetchData("/files/2024P.json","SIMB 2024P","#spark3","#spark4",processData);
-  fetchData("/files/2024R.json","SIMB 2024R","#spark5","#spark6",processData);
+  data_L = fetchData("/files/2024L.json","SIMB 2024L","#spark1","#spark2",processData);
+  data_P = fetchData("/files/2024P.json","SIMB 2024P","#spark3","#spark4",processData);
+  data_R = fetchData("/files/2024R.json","SIMB 2024R","#spark5","#spark6",processData);
   // fetchData("https://api.cryosphereinnovation.com/public/deployment/data/0ffc82c0-91b4-47fb-a62d-8b16b583196b","SIMB 2024R","#spark5","#spark6",processData);
 </script>
