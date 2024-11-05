@@ -49,9 +49,7 @@ async function fetchData(url, buoyName, targetPane1,targetPane2, callbackFx) {
   const response = await fetch(url, options);
   let data = await response.json();
 
-  dataObject = callbackFx(data,buoyName,targetPane1,targetPane2);
-
-  return dataObject;
+  callbackFx(data,buoyName,targetPane1,targetPane2);
 }
 
 /*************************** data processing callback def ***************************/
@@ -303,8 +301,6 @@ function processData(data,buoyName,targetPane1,targetPane2) {
 
   // plot the data
   plotData(dataObject,buoyName,targetPane1,targetPane2);
-
-  return dataObject;
 }
 
 /**************************** plot data function def ****************************/
@@ -708,33 +704,33 @@ function plotData(dataObject,buoyName,targetPane1,targetPane2) {
    'Station #7 (unfiltered)',
    'Station #8 (unfiltered)',
    'Station #9 (unfiltered)',
-   'Station #10 (unfiltered)',);
+   'Station #10 (unfiltered)');
 }
 
-function changeData(buoyName,dataObject) {
+function changeData(buoyName) {
 
-  ApexCharts.exec(buoyName, "toggleSeries",{[
-    'Station #1 (filtered)',
-    'Station #2 (filtered)',
-    'Station #3 (filtered)',
-    'Station #4 (filtered)',
-    'Station #5 (filtered)',
-    'Station #6 (filtered)',
-    'Station #7 (filtered)',
-    'Station #8 (filtered)',
-    'Station #9 (filtered)',
-    'Station #10 (filtered)',
-    'Station #1 (unfiltered)',
-    'Station #2 (unfiltered)',
-    'Station #3 (unfiltered)',
-    'Station #4 (unfiltered)',
-    'Station #5 (unfiltered)',
-    'Station #6 (unfiltered)',
-    'Station #7 (unfiltered)',
-    'Station #8 (unfiltered)',
-    'Station #9 (unfiltered)',
-    'Station #10 (unfiltered)',]
-  });
+  ApexCharts.exec(buoyName, "toggleSeries",
+    'Station #1 (filtered)');
+  //   'Station #2 (filtered)',
+  //   'Station #3 (filtered)',
+  //   'Station #4 (filtered)',
+  //   'Station #5 (filtered)',
+  //   'Station #6 (filtered)',
+  //   'Station #7 (filtered)',
+  //   'Station #8 (filtered)',
+  //   'Station #9 (filtered)',
+  //   'Station #10 (filtered)',
+  //   'Station #1 (unfiltered)',
+  //   'Station #2 (unfiltered)',
+  //   'Station #3 (unfiltered)',
+  //   'Station #4 (unfiltered)',
+  //   'Station #5 (unfiltered)',
+  //   'Station #6 (unfiltered)',
+  //   'Station #7 (unfiltered)',
+  //   'Station #8 (unfiltered)',
+  //   'Station #9 (unfiltered)',
+  //   'Station #10 (unfiltered)',]
+  // });
 
   // ApexCharts.exec(buoyName, "updateOptions", {
   //   series: [
