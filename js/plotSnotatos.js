@@ -708,7 +708,7 @@ function plotData(dataObject,buoyName,targetPane1,targetPane2) {
    'Station #7 (unfiltered)',
    'Station #8 (unfiltered)',
    'Station #9 (unfiltered)',
-   'Station #10 (unfiltered)',)
+   'Station #10 (unfiltered)',);
 }
 
 function changeData(buoyName,dataObject) {
