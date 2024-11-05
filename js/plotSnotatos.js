@@ -660,7 +660,7 @@ function plotData(dataObject,buoyName,targetPane1,targetPane2) {
  var chart = new ApexCharts(document.querySelector(targetPane2), options1).render();
 }
 
-function changeData(buoyName) {
+function changeData(buoyName,dataObject) {
 
   ApexCharts.exec(buoyName, "updateOptions", {
     series: [
