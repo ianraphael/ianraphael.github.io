@@ -313,44 +313,84 @@ function plotData(dataObject,buoyName,targetPane1,targetPane2) {
   var options = {
     series: [
       {
-        name: 'Station #1',
+        name: 'Station #1 (filtered)',
         data: dataObject.snowDepth_filtered_indiv[0],
       },
       {
-        name: 'Station #2',
+        name: 'Station #2 (filtered)',
         data: dataObject.snowDepth_filtered_indiv[1],
       },
       {
-        name: 'Station #3',
+        name: 'Station #3 (filtered)',
         data: dataObject.snowDepth_filtered_indiv[2],
       },
       {
-        name: 'Station #4',
+        name: 'Station #4 (filtered)',
         data: dataObject.snowDepth_filtered_indiv[3],
       },
       {
-        name: 'Station #5',
+        name: 'Station #5 (filtered)',
         data: dataObject.snowDepth_filtered_indiv[4],
       },
       {
-        name: 'Station #6',
+        name: 'Station #6 (filtered)',
         data: dataObject.snowDepth_filtered_indiv[5],
       },
       {
-        name: 'Station #7',
+        name: 'Station #7 (filtered)',
         data: dataObject.snowDepth_filtered_indiv[6],
       },
       {
-        name: 'Station #8',
+        name: 'Station #8 (filtered)',
         data: dataObject.snowDepth_filtered_indiv[7],
       },
       {
-        name: 'Station #9',
+        name: 'Station #9 (filtered)',
         data: dataObject.snowDepth_filtered_indiv[8],
       },
       {
-        name: 'Station #10',
+        name: 'Station #10 (filtered)',
         data: dataObject.snowDepth_filtered_indiv[9],
+      },
+      {
+        name: 'Station #1 (filtered)',
+        data: dataObject.snowDepth_unfiltered_indiv[0],
+      },
+      {
+        name: 'Station #2 (unfiltered)',
+        data: dataObject.snowDepth_unfiltered_indiv[1],
+      },
+      {
+        name: 'Station #3 (unfiltered)',
+        data: dataObject.snowDepth_unfiltered_indiv[2],
+      },
+      {
+        name: 'Station #4 (unfiltered)',
+        data: dataObject.snowDepth_unfiltered_indiv[3],
+      },
+      {
+        name: 'Station #5 (unfiltered)',
+        data: dataObject.snowDepth_unfiltered_indiv[4],
+      },
+      {
+        name: 'Station #6 (unfiltered)',
+        data: dataObject.snowDepth_unfiltered_indiv[5],
+      },
+      {
+        name: 'Station #7 (unfiltered)',
+        data: dataObject.snowDepth_unfiltered_indiv[6],
+      },
+      {
+        name: 'Station #8 (unfiltered)',
+        data: dataObject.snowDepth_unfiltered_indiv[7],
+      },
+      {
+        name: 'Station #9 (unfiltered)',
+        data: dataObject.snowDepth_unfiltered_indiv[8],
+      },
+      {
+        name: 'Station #10 (unfiltered)',
+        data: dataObject.snowDepth_unfiltered_indiv[9],
       },
       {
         name: "Mean (active stations)",
@@ -662,58 +702,60 @@ function plotData(dataObject,buoyName,targetPane1,targetPane2) {
 
 function changeData(buoyName,dataObject) {
 
-  ApexCharts.exec(buoyName, "updateOptions", {
-    series: [
-      {
-        name: 'Station #1',
-        data: dataObject.snowDepth_unfiltered_indiv[0],
-      },
-      {
-        name: 'Station #2',
-        data: dataObject.snowDepth_unfiltered_indiv[1],
-      },
-      {
-        name: 'Station #3',
-        data: dataObject.snowDepth_unfiltered_indiv[2],
-      },
-      {
-        name: 'Station #4',
-        data: dataObject.snowDepth_unfiltered_indiv[3],
-      },
-      {
-        name: 'Station #5',
-        data: dataObject.snowDepth_unfiltered_indiv[4],
-      },
-      {
-        name: 'Station #6',
-        data: dataObject.snowDepth_unfiltered_indiv[5],
-      },
-      {
-        name: 'Station #7',
-        data: dataObject.snowDepth_unfiltered_indiv[6],
-      },
-      {
-        name: 'Station #8',
-        data: dataObject.snowDepth_unfiltered_indiv[7],
-      },
-      {
-        name: 'Station #9',
-        data: dataObject.snowDepth_unfiltered_indiv[8],
-      },
-      {
-        name: 'Station #10',
-        data: dataObject.snowDepth_unfiltered_indiv[9],
-      },
-      {
-        name: "Mean (active stations)",
-        data: dataObject.averageSnowDepth,
-      },
-      {
-        name: 'SIMB3',
-        data: dataObject.simbSnowDepth,
-      },
-    ],
-  });
+  ApexCharts.exec(buoyName, "toggleSeries", {
+
+  // ApexCharts.exec(buoyName, "updateOptions", {
+  //   series: [
+  //     {
+  //       name: 'Station #1',
+  //       data: dataObject.snowDepth_unfiltered_indiv[0],
+  //     },
+  //     {
+  //       name: 'Station #2',
+  //       data: dataObject.snowDepth_unfiltered_indiv[1],
+  //     },
+  //     {
+  //       name: 'Station #3',
+  //       data: dataObject.snowDepth_unfiltered_indiv[2],
+  //     },
+  //     {
+  //       name: 'Station #4',
+  //       data: dataObject.snowDepth_unfiltered_indiv[3],
+  //     },
+  //     {
+  //       name: 'Station #5',
+  //       data: dataObject.snowDepth_unfiltered_indiv[4],
+  //     },
+  //     {
+  //       name: 'Station #6',
+  //       data: dataObject.snowDepth_unfiltered_indiv[5],
+  //     },
+  //     {
+  //       name: 'Station #7',
+  //       data: dataObject.snowDepth_unfiltered_indiv[6],
+  //     },
+  //     {
+  //       name: 'Station #8',
+  //       data: dataObject.snowDepth_unfiltered_indiv[7],
+  //     },
+  //     {
+  //       name: 'Station #9',
+  //       data: dataObject.snowDepth_unfiltered_indiv[8],
+  //     },
+  //     {
+  //       name: 'Station #10',
+  //       data: dataObject.snowDepth_unfiltered_indiv[9],
+  //     },
+  //     {
+  //       name: "Mean (active stations)",
+  //       data: dataObject.averageSnowDepth,
+  //     },
+  //     {
+  //       name: 'SIMB3',
+  //       data: dataObject.simbSnowDepth,
+  //     },
+  //   ],
+  // });
 }
 
 // if (localFiles != true) {
