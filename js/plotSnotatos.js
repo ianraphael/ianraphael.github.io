@@ -713,7 +713,7 @@ function plotData(dataObject,buoyName,targetPane1,targetPane2) {
 
 function changeData(buoyName,dataObject) {
 
-  ApexCharts.exec(buoyName, "toggleSeries",{
+  ApexCharts.exec(buoyName, "toggleSeries",{[
     'Station #1 (filtered)',
     'Station #2 (filtered)',
     'Station #3 (filtered)',
@@ -733,7 +733,7 @@ function changeData(buoyName,dataObject) {
     'Station #7 (unfiltered)',
     'Station #8 (unfiltered)',
     'Station #9 (unfiltered)',
-    'Station #10 (unfiltered)',
+    'Station #10 (unfiltered)',]
   });
 
   // ApexCharts.exec(buoyName, "updateOptions", {
