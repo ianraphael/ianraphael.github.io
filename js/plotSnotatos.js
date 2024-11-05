@@ -695,7 +695,7 @@ function plotData(dataObject,buoyName,targetPane1,targetPane2) {
 
  var chart = new ApexCharts(document.querySelector(targetPane2), options1).render();
 
- hideSeries ('Station #1 (unfiltered)',
+ chart.hideSeries ('Station #1 (unfiltered)',
    'Station #2 (unfiltered)',
    'Station #3 (unfiltered)',
    'Station #4 (unfiltered)',
@@ -709,28 +709,26 @@ function plotData(dataObject,buoyName,targetPane1,targetPane2) {
 
 function changeData(buoyName) {
 
-  ApexCharts.exec(buoyName, "toggleSeries",
-    'Station #1 (filtered)');
-  //   'Station #2 (filtered)',
-  //   'Station #3 (filtered)',
-  //   'Station #4 (filtered)',
-  //   'Station #5 (filtered)',
-  //   'Station #6 (filtered)',
-  //   'Station #7 (filtered)',
-  //   'Station #8 (filtered)',
-  //   'Station #9 (filtered)',
-  //   'Station #10 (filtered)',
-  //   'Station #1 (unfiltered)',
-  //   'Station #2 (unfiltered)',
-  //   'Station #3 (unfiltered)',
-  //   'Station #4 (unfiltered)',
-  //   'Station #5 (unfiltered)',
-  //   'Station #6 (unfiltered)',
-  //   'Station #7 (unfiltered)',
-  //   'Station #8 (unfiltered)',
-  //   'Station #9 (unfiltered)',
-  //   'Station #10 (unfiltered)',]
-  // });
+  ApexCharts.exec(buoyName, "toggleSeries",'Station #1 (filtered)');
+  ApexCharts.exec(buoyName, "toggleSeries",'Station #2 (filtered)');
+  ApexCharts.exec(buoyName, "toggleSeries",'Station #3 (filtered)');
+  ApexCharts.exec(buoyName, "toggleSeries",'Station #4 (filtered)');
+  ApexCharts.exec(buoyName, "toggleSeries",'Station #5 (filtered)');
+  ApexCharts.exec(buoyName, "toggleSeries",'Station #6 (filtered)');
+  ApexCharts.exec(buoyName, "toggleSeries",'Station #7 (filtered)');
+  ApexCharts.exec(buoyName, "toggleSeries",'Station #8 (filtered)');
+  ApexCharts.exec(buoyName, "toggleSeries",'Station #9 (filtered)');
+  ApexCharts.exec(buoyName, "toggleSeries",'Station #10 (filtered)');
+  ApexCharts.exec(buoyName, "toggleSeries",'Station #1 (unfiltered)');
+  ApexCharts.exec(buoyName, "toggleSeries",'Station #2 (unfiltered)');
+  ApexCharts.exec(buoyName, "toggleSeries",'Station #3 (unfiltered)');
+  ApexCharts.exec(buoyName, "toggleSeries",'Station #4 (unfiltered)');
+  ApexCharts.exec(buoyName, "toggleSeries",'Station #5 (unfiltered)');
+  ApexCharts.exec(buoyName, "toggleSeries",'Station #6 (unfiltered)');
+  ApexCharts.exec(buoyName, "toggleSeries",'Station #7 (unfiltered)');
+  ApexCharts.exec(buoyName, "toggleSeries",'Station #8 (unfiltered)');
+  ApexCharts.exec(buoyName, "toggleSeries",'Station #9 (unfiltered)');
+  ApexCharts.exec(buoyName, "toggleSeries",'Station #10 (unfiltered)');
 
   // ApexCharts.exec(buoyName, "updateOptions", {
   //   series: [
