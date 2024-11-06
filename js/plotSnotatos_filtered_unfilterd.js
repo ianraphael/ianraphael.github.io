@@ -476,7 +476,7 @@ function plotData(dataObject,buoyName,targetPane1,targetPane2) {
           enabled: false,
         }
       },
-      // type: 'line',
+      type: 'line',
       stacked: false,
       height: 467,
       zoom: {
