@@ -106,5 +106,5 @@ enable_nav: true
 nav_item:
   - { url: '/', text: 'Home' }
   - { url: '/SnoTATOSsystemDescription', text: 'SnoTATOS System' }
-  - {url: '/SnoTATOSdata', text: 'Live Data' }
+  - { url: '/SnoTATOSdata', text: 'Live Data' }
   # - {url: '/SnoTATOS', text: 'Live data' }
