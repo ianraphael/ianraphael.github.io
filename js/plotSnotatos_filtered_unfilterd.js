@@ -269,14 +269,13 @@ function processData(data,buoyName,targetPane1,targetPane2) {
   dataObject.snowDepth_unfiltered_indiv = new Array();
 
   // for every station
-  for (let i=0;i<numStations;i++){
+  for (let i=0;i<numStations;i++) {
 
     // allocate a new array for the filtered data
     let holdStationFiltered = new Array();
 
     // repeat for filtered data
     let holdStationUnfiltered = new Array();
-    holdStationUnfiltered = new Array();
 
     // for every measurement
     for (let i2=0;i2<dataArray.length;i2++){
