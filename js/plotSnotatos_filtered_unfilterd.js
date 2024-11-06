@@ -785,9 +785,9 @@ function plotData(dataObject,filtered,buoyName,targetPane1,targetPane2) {
     }
   };
 
-  if (typeof chart != "undefined") {
-    chart.destroy();
-  }
+  // if (typeof chart != "undefined") {
+  //   chart.destroy();
+  // }
 
   if (!filtered) {
     new ApexCharts(document.querySelector(targetPane1), options_filtered).render();
