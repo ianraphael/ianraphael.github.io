@@ -33,7 +33,7 @@ let simbInitSnow = {"SIMB 2024R":0.26,"SIMB 2024L":0.36,"SIMB 2024P":0.19,"SIMB 
 
 let pingerStandoff = 1.44 - 0.19; // height of pinger above ice surface depth stop
 
-let emaAlpha = 2/(100+1); // smoothing factor for exponential moving average
+let emaAlpha = 2/(10+1); // smoothing factor for exponential moving average
 // let emaAlpha = 2/(20+1); // smoothing factor for exponential moving average
 let maxChangeRate_mmsec = 7; // 7 mm as specified by Maxbotix for snow specific pinger https://maxbotix.com/pages/hrxl-maxsonar-wrs-datasheet
 let samplingInterval_hours = 4;
@@ -315,101 +315,153 @@ function plotData(dataObject,buoyName,targetPane1,targetPane2) {
     series: [
       {
         name: 'Station #1 (filtered)',
+        type: 'line',
         data: dataObject.snowDepth_filtered_indiv[0],
       },
       {
         name: 'Station #2 (filtered)',
+        type: 'line',
         data: dataObject.snowDepth_filtered_indiv[1],
       },
       {
         name: 'Station #3 (filtered)',
+        type: 'line',
         data: dataObject.snowDepth_filtered_indiv[2],
       },
       {
         name: 'Station #4 (filtered)',
+        type: 'line',
         data: dataObject.snowDepth_filtered_indiv[3],
       },
       {
         name: 'Station #5 (filtered)',
+        type: 'line',
         data: dataObject.snowDepth_filtered_indiv[4],
       },
       {
         name: 'Station #6 (filtered)',
+        type: 'line',
         data: dataObject.snowDepth_filtered_indiv[5],
       },
       {
         name: 'Station #7 (filtered)',
+        type: 'line',
         data: dataObject.snowDepth_filtered_indiv[6],
       },
       {
         name: 'Station #8 (filtered)',
+        type: 'line',
         data: dataObject.snowDepth_filtered_indiv[7],
       },
       {
         name: 'Station #9 (filtered)',
+        type: 'line',
         data: dataObject.snowDepth_filtered_indiv[8],
       },
       {
         name: 'Station #10 (filtered)',
+        type: 'line',
         data: dataObject.snowDepth_filtered_indiv[9],
       },
       {
         name: "Mean (active stations)",
+        type: 'line',
         data: dataObject.averageSnowDepth,
       },
       {
         name: 'SIMB3',
+        type: 'line',
         data: dataObject.simbSnowDepth,
       },
       {
         name: 'Station #1 (unfiltered)',
+        type: 'scatter',
         hidden: true,
         data: dataObject.snowDepth_unfiltered_indiv[0],
+        markers: {
+          size: 6,
+        },
       },
       {
         name: 'Station #2 (unfiltered)',
+        type: 'scatter',
         hidden: true,
         data: dataObject.snowDepth_unfiltered_indiv[1],
+        markers: {
+          size: 6,
+        },
       },
       {
         name: 'Station #3 (unfiltered)',
+        type: 'scatter',
         hidden: true,
         data: dataObject.snowDepth_unfiltered_indiv[2],
+        markers: {
+          size: 6,
+        },
       },
       {
         name: 'Station #4 (unfiltered)',
+        type: 'scatter',
         hidden: true,
         data: dataObject.snowDepth_unfiltered_indiv[3],
+        markers: {
+          size: 6,
+        },
       },
       {
         name: 'Station #5 (unfiltered)',
+        type: 'scatter',
         hidden: true,
         data: dataObject.snowDepth_unfiltered_indiv[4],
+        markers: {
+          size: 6,
+        },
       },
       {
         name: 'Station #6 (unfiltered)',
+        type: 'scatter',
         hidden: true,
         data: dataObject.snowDepth_unfiltered_indiv[5],
+        markers: {
+          size: 6,
+        },
       },
       {
         name: 'Station #7 (unfiltered)',
+        type: 'scatter',
         hidden: true,
         data: dataObject.snowDepth_unfiltered_indiv[6],
+        markers: {
+          size: 6,
+        },
       },
       {
         name: 'Station #8 (unfiltered)',
+        type: 'scatter',
         hidden: true,
         data: dataObject.snowDepth_unfiltered_indiv[7],
+        markers: {
+          size: 6,
+        },
       },
       {
         name: 'Station #9 (unfiltered)',
+        type: 'scatter',
         hidden: true,
         data: dataObject.snowDepth_unfiltered_indiv[8],
+        markers: {
+          size: 6,
+        },
       },
       {
         name: 'Station #10 (unfiltered)',
+        type: 'scatter',
         hidden: true,
         data: dataObject.snowDepth_unfiltered_indiv[9],
+        markers: {
+          size: 6,
+        },
       },
     ],
     chart: {
@@ -424,7 +476,7 @@ function plotData(dataObject,buoyName,targetPane1,targetPane2) {
           enabled: false,
         }
       },
-      type: 'line',
+      // type: 'line',
       stacked: false,
       height: 467,
       zoom: {
