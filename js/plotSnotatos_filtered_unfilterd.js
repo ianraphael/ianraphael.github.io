@@ -790,10 +790,10 @@ function plotData(dataObject,filtered,buoyName,targetPane1,targetPane2) {
   }
 
   if (!filtered) {
-    new chart = ApexCharts(document.querySelector(targetPane1), options_filtered).render();
+    let chart = new ApexCharts(document.querySelector(targetPane1), options_filtered).render();
     filtered = true;
   } else {
-    new chart = ApexCharts(document.querySelector(targetPane1), options_unfiltered).render();
+    let chart = new ApexCharts(document.querySelector(targetPane1), options_unfiltered).render();
     filtered = false;
   }
 
