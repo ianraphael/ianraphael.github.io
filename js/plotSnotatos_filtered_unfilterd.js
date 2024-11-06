@@ -33,8 +33,8 @@ let simbInitSnow = {"SIMB 2024R":0.26,"SIMB 2024L":0.36,"SIMB 2024P":0.19,"SIMB 
 
 let pingerStandoff = 1.44 - 0.19; // height of pinger above ice surface depth stop
 
-// let emaAlpha = 2/(10+1); // smoothing factor for exponential moving average
-let emaAlpha = 2/(20+1); // smoothing factor for exponential moving average
+let emaAlpha = 2/(100+1); // smoothing factor for exponential moving average
+// let emaAlpha = 2/(20+1); // smoothing factor for exponential moving average
 let maxChangeRate_mmsec = 7; // 7 mm as specified by Maxbotix for snow specific pinger https://maxbotix.com/pages/hrxl-maxsonar-wrs-datasheet
 let samplingInterval_hours = 4;
 
