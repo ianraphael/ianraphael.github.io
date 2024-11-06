@@ -785,12 +785,16 @@ function plotData(dataObject,filtered,buoyName,targetPane1,targetPane2) {
     }
   };
 
-  if (filtered) {
-    new ApexCharts(document.querySelector(targetPane1), options_filtered).render();
-    filtered = false;
-  } else {
-    new ApexCharts(document.querySelector(targetPane1), options_unfiltered).render();
+  if (typeof chart != "undefined") {
+    chart.destroy();
+  }
+
+  if (!filtered) {
+    new chart = ApexCharts(document.querySelector(targetPane1), options_filtered).render();
     filtered = true;
+  } else {
+    new chart = ApexCharts(document.querySelector(targetPane1), options_unfiltered).render();
+    filtered = false;
   }
 
   var options1 = {

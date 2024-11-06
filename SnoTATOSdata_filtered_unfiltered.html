@@ -33,23 +33,24 @@ permalink: /SnoTATOSdata_filtered_unfiltered/
       <div id="spark4"></div>
     </div>
     <br>
-    <center><button type="button" onclick="changeData('SIMB 2024P',filtered_P)">Toggle filtered/unfiltered data</button></center>
+    <center><button type="button" onclick="changeData('/files/2024P.json','SIMB 2024P',filtered_P,'#spark1','#spark2',processData)">Toggle filtered/unfiltered data</button></center>
     <br>
     <div class="box">
       <div id="spark5"></div>
       <div id="spark6"></div>
     </div>
     <br>
-    <center><button type="button" onclick="changeData('SIMB 2024R',filtered_R)">Toggle filtered/unfiltered data</button></center>
+    <center><button type="button" onclick="changeData('/files/2024R.json','SIMB 2024R',filtered_R,'#spark1','#spark2',processData)">Toggle filtered/unfiltered data</button></center>
     <br>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>'
 <script src="/js/plotSnotatos_filtered_unfilterd.js"></script>
 <script>
-  let filtered_L = true;
-  let filtered_P = true;
-  let filtered_R = true;
+
+  let filtered_L = false;
+  let filtered_P = false;
+  let filtered_R = false;
 
   fetchData("/files/2024L.json","SIMB 2024L",filtered_L,"#spark1","#spark2",processData);
   fetchData("/files/2024P.json","SIMB 2024P",filtered_P,"#spark3","#spark4",processData);
