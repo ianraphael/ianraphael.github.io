@@ -187,7 +187,10 @@ function processData(data,buoyName,targetPane1,targetPane2) {
   /******************************* Filter data *******************************/
 
   // make a copy of snow depth for filtered data
-  let snowDepth_filtered = snowDepth.slice(0);
+  let snowDepth_filtered = snowDepth.slice();
+  for (let row=0;row<snowDepth_filtered.length;row++) {
+    snowDepth_filtered[row] = snowDepth[row].slice();
+  }
 
   // for every row after the first
   for (let row=1;row<dataArray.length;row++){
