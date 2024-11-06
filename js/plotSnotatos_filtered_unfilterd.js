@@ -49,7 +49,8 @@ async function fetchData(url, buoyName, targetPane1,targetPane2, callbackFx) {
   const response = await fetch(url, options);
   let data = await response.json();
 
-  callbackFx(data,buoyName,targetPane1,targetPane2);
+  let dataObject = callbackFx(data,buoyName,targetPane1,targetPane2);
+  return dataObject;
 }
 
 /*************************** data processing callback def ***************************/
@@ -301,6 +302,8 @@ function processData(data,buoyName,targetPane1,targetPane2) {
 
   // plot the data
   plotData(dataObject,buoyName,targetPane1,targetPane2);
+
+  return dataObject;
 }
 
 /**************************** plot data function def ****************************/
