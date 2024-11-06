@@ -358,6 +358,56 @@ function plotData(dataObject,buoyName,targetPane1,targetPane2) {
         name: 'SIMB3',
         data: dataObject.simbSnowDepth,
       },
+      {
+        name: 'Station #1 (unfiltered)',
+        hidden: true,
+        data: dataObject.snowDepth_unfiltered_indiv[0],
+      },
+      {
+        name: 'Station #2 (unfiltered)',
+        hidden: true,
+        data: dataObject.snowDepth_unfiltered_indiv[1],
+      },
+      {
+        name: 'Station #3 (unfiltered)',
+        hidden: true,
+        data: dataObject.snowDepth_unfiltered_indiv[2],
+      },
+      {
+        name: 'Station #4 (unfiltered)',
+        hidden: true,
+        data: dataObject.snowDepth_unfiltered_indiv[3],
+      },
+      {
+        name: 'Station #5 (unfiltered)',
+        hidden: true,
+        data: dataObject.snowDepth_unfiltered_indiv[4],
+      },
+      {
+        name: 'Station #6 (unfiltered)',
+        hidden: true,
+        data: dataObject.snowDepth_unfiltered_indiv[5],
+      },
+      {
+        name: 'Station #7 (unfiltered)',
+        hidden: true,
+        data: dataObject.snowDepth_unfiltered_indiv[6],
+      },
+      {
+        name: 'Station #8 (unfiltered)',
+        hidden: true,
+        data: dataObject.snowDepth_unfiltered_indiv[7],
+      },
+      {
+        name: 'Station #9 (unfiltered)',
+        hidden: true,
+        data: dataObject.snowDepth_unfiltered_indiv[8],
+      },
+      {
+        name: 'Station #10 (unfiltered)',
+        hidden: true,
+        data: dataObject.snowDepth_unfiltered_indiv[9],
+      },
     ],
     chart: {
       id: buoyName,
@@ -538,236 +588,6 @@ function plotData(dataObject,buoyName,targetPane1,targetPane2) {
 
   new ApexCharts(document.querySelector(targetPane1), options_filtered).render();
 
-  var options_unfiltered = {
-    series: [
-      {
-        name: 'Station #1 (unfiltered)',
-        data: dataObject.snowDepth_unfiltered_indiv[0],
-      },
-      {
-        name: 'Station #2 (unfiltered)',
-        data: dataObject.snowDepth_unfiltered_indiv[1],
-      },
-      {
-        name: 'Station #3 (unfiltered)',
-        data: dataObject.snowDepth_unfiltered_indiv[2],
-      },
-      {
-        name: 'Station #4 (unfiltered)',
-        data: dataObject.snowDepth_unfiltered_indiv[3],
-      },
-      {
-        name: 'Station #5 (unfiltered)',
-        data: dataObject.snowDepth_unfiltered_indiv[4],
-      },
-      {
-        name: 'Station #6 (unfiltered)',
-        data: dataObject.snowDepth_unfiltered_indiv[5],
-      },
-      {
-        name: 'Station #7 (unfiltered)',
-        data: dataObject.snowDepth_unfiltered_indiv[6],
-      },
-      {
-        name: 'Station #8 (unfiltered)',
-        data: dataObject.snowDepth_unfiltered_indiv[7],
-      },
-      {
-        name: 'Station #9 (unfiltered)',
-        data: dataObject.snowDepth_unfiltered_indiv[8],
-      },
-      {
-        name: 'Station #10 (unfiltered)',
-        data: dataObject.snowDepth_unfiltered_indiv[9],
-      },
-      {
-        name: "Mean (active stations)",
-        data: dataObject.averageSnowDepth,
-      },
-      {
-        name: 'SIMB3',
-        data: dataObject.simbSnowDepth,
-      },
-    ],
-    chart: {
-      id: buoyName,
-      group: 'snotatosPlots',
-      animations: {
-        enabled: false,
-        animateGradually: {
-          enabled: false,
-        },
-        dynamicAnimation: {
-          enabled: false,
-        }
-      },
-      type: 'line',
-      stacked: false,
-      height: 467,
-      zoom: {
-        type: 'x',
-        enabled: true,
-        autoScaleYaxis: true
-      },
-      toolbar: {
-        autoSelected: 'zoom',
-        offsetX: -30,
-
-      }
-    },
-    stroke: {
-      show: true,
-      // curve: 'straight',
-      lineCap: 'butt',
-      // colors: undefined,
-      width: 2,
-      // dashArray: [0,0,0,0,0,0,0,0,0,0,4,0,],
-    },
-    colors: ['#008FFB', '#00E396', '#FEB019', '#FF4560', '#775DD0',
-    '#3F51B5', '#03A9F4', '#4CAF50', '#F9CE1D', '#FF9800','#000000','#7b7b7b',],
-    dataLabels: {
-      enabled: false
-    },
-    markers: {
-      size: 0,
-    },
-    title: {
-      text: buoyName,
-      align: 'center',
-      margin: 10,
-      offsetX: 0,
-      offsetY: 15,
-      floating: false,
-      style: {
-        fontSize:  '28px',
-        fontWeight:  'bold',
-        fontFamily:  undefined,
-        color:  '#263238'
-      },
-    },
-    yaxis: {
-      labels: {
-        formatter: function (val) {
-          if (val!=null){
-            return (val).toFixed(2);
-          }
-        },
-        offsetX: 12,
-      },
-      title: {
-        text: 'Snow depth (m)',
-        style: {
-          fontSize: '22px',
-          fontFamily: 'Helvetica, Arial, sans-serif',
-          fontWeight: 800,
-          cssClass: 'apexcharts-yaxis-label',
-        },
-        offsetX: -5,
-        offsetY: 0,
-        align: 'left',
-      },
-    },
-    xaxis: {
-      type: 'datetime',
-      tooltip: {
-        enabled: false,
-      },
-    },
-    grid: {
-      show: true,
-      borderColor: '#90A4AE',
-      strokeDashArray: 0,
-      position: 'back',
-      xaxis: {
-        lines: {
-          show: false,
-        }
-      },
-      yaxis: {
-        lines: {
-          show: true,
-        }
-      },
-      row: {
-        colors: undefined,
-        opacity: 0.5
-      },
-      column: {
-        colors: undefined,
-        opacity: 0.5
-      },
-      padding: {
-        top: 20,
-        right: 30,
-        bottom: 0,
-        left: 20
-      },
-    },
-    legend: {
-      show: true,
-      showForSingleSeries: false,
-      showForNullSeries: true,
-      showForZeroSeries: true,
-      position: 'top',
-      horizontalAlign: 'center',
-      floating: false,
-      fontSize: '14px',
-      fontFamily: 'Helvetica, Arial',
-      fontWeight: 400,
-      formatter: undefined,
-      inverseOrder: false,
-      width: undefined,
-      height: undefined,
-      tooltipHoverFormatter: undefined,
-      customLegendItems: [],
-      offsetX: 0,
-      offsetY: 0,
-      labels: {
-        colors: undefined,
-        useSeriesColors: false
-      },
-      markers: {
-        size: 7,
-        shape: 'square',
-        strokeWidth: 1,
-        fillColors: undefined,
-        customHTML: undefined,
-        onClick: undefined,
-        offsetX: 0,
-        offsetY: 0
-      },
-      itemMargin: {
-        horizontal: 5,
-        vertical: 0
-      },
-      onItemClick: {
-        toggleDataSeries: true
-      },
-      onItemHover: {
-        highlightDataSeries: true
-      },
-    },
-    tooltip: {
-      shared: true,
-      y: {
-        formatter: function (val) {
-          if (val!=null){
-            return (val).toFixed(2);
-          }
-        }
-      },
-      x: {
-        formatter: function (val) {
-          if (val!=null){
-            return (new Date(val)).toUTCString();
-          }
-        }
-      },
-    }
-  };
-
-  let unfilteredChart = new ApexCharts(document.querySelector(targetPane1), options_unfiltered);
-
   var options1 = {
     series: [
       {
@@ -886,21 +706,29 @@ function plotData(dataObject,buoyName,targetPane1,targetPane2) {
   };
 
   var chart = new ApexCharts(document.querySelector(targetPane2), options1).render();
-
-  chart.hideSeries ('Station #1 (unfiltered)',
-  'Station #2 (unfiltered)',
-  'Station #3 (unfiltered)',
-  'Station #4 (unfiltered)',
-  'Station #5 (unfiltered)',
-  'Station #6 (unfiltered)',
-  'Station #7 (unfiltered)',
-  'Station #8 (unfiltered)',
-  'Station #9 (unfiltered)',
-  'Station #10 (unfiltered)');
 }
 
 function changeData(buoyName) {
-  unfilteredChart.render();
+  ApexCharts.exec(buoyName, "toggleSeries",'Station #1 (filtered)');
+  ApexCharts.exec(buoyName, "toggleSeries",'Station #2 (filtered)');
+  ApexCharts.exec(buoyName, "toggleSeries",'Station #3 (filtered)');
+  ApexCharts.exec(buoyName, "toggleSeries",'Station #4 (filtered)');
+  ApexCharts.exec(buoyName, "toggleSeries",'Station #5 (filtered)');
+  ApexCharts.exec(buoyName, "toggleSeries",'Station #6 (filtered)');
+  ApexCharts.exec(buoyName, "toggleSeries",'Station #7 (filtered)');
+  ApexCharts.exec(buoyName, "toggleSeries",'Station #8 (filtered)');
+  ApexCharts.exec(buoyName, "toggleSeries",'Station #9 (filtered)');
+  ApexCharts.exec(buoyName, "toggleSeries",'Station #10 (filtered)');
+  ApexCharts.exec(buoyName, "toggleSeries",'Station #1 (unfiltered)');
+  ApexCharts.exec(buoyName, "toggleSeries",'Station #2 (unfiltered)');
+  ApexCharts.exec(buoyName, "toggleSeries",'Station #3 (unfiltered)');
+  ApexCharts.exec(buoyName, "toggleSeries",'Station #4 (unfiltered)');
+  ApexCharts.exec(buoyName, "toggleSeries",'Station #5 (unfiltered)');
+  ApexCharts.exec(buoyName, "toggleSeries",'Station #6 (unfiltered)');
+  ApexCharts.exec(buoyName, "toggleSeries",'Station #7 (unfiltered)');
+  ApexCharts.exec(buoyName, "toggleSeries",'Station #8 (unfiltered)');
+  ApexCharts.exec(buoyName, "toggleSeries",'Station #9 (unfiltered)');
+  ApexCharts.exec(buoyName, "toggleSeries",'Station #10 (unfiltered)');
 }
 
 // if (localFiles != true) {
@@ -912,14 +740,3 @@ function changeData(buoyName) {
 // fetchData(localUrl,"SIMB 2024L","#spark1","#spark2",processData);
 // console.log("fetched local data");
 // }
-
-
-//
-// </script>
-//
-// <body>
-//
-// </body>
-//
-//
-// </html>
