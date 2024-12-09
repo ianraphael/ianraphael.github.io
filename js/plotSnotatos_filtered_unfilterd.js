@@ -374,7 +374,7 @@ function plotData(dataObject,filtered,buoyName,targetPane1,targetPane2) {
           enabled: false,
         }
       },
-      type: 'line',
+      type: 'scatter',
       stacked: false,
       height: 467,
       zoom: {
